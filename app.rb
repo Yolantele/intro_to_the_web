@@ -26,8 +26,15 @@ require 'sinatra'
     erb(:index)
   end
 
-  get '/named-cat' do
+  post '/named-cat' do
     p params[:name]
     @name = params[:name]
     erb(:index)
+  end
+
+  get '/form' do
+    "<form action='named-cat' method='post'>
+      <input type='text' name='name'>
+      <input type='submit' value='Submit'/>
+    </form>"
   end
